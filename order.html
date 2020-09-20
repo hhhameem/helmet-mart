@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="order.css">
+  <title>Order</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light shadow rounded sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerID" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand ml-5" href="#">HelmetMart</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerID">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link active" href="#">Home</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Helmets</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#helmetbrands">Brands</a>
+            <a class="dropdown-item" href="#helmetcatagory">Catagory</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link" href="#accessories">Accessories</a>
+      </div>
+      <div class="navbar-nav mr-5">
+        <form class="form-inline my-2 my-lg-0" id="navform">
+          <div class="input-group mb-1">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Search" aria-label="Search" required>
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+        <a class="nav-item nav-link mt-1" href="order.html"><i class="fas fa-shopping-cart fa-2x"></i><span class="cart-counter">3</span></a>
+        <a class="nav-item nav-link mt-1" href="#" data-toggle="modal" data-target="#logInModal"><i class="far fa-user-circle fa-2x"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="modal modal-fade" id="logInModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logInModalLabel">Log In Credentials</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form class="my-2 my-lg-0" id="loginform">
+            <div class="form-row mr-1 ml-1 mb-2">
+              <label for="email">E-Mail</label>
+              <input type="text" class="form-control" id="loginemail" name="loginemail" value="" placeholder="example@gmail.com" required>
+              <small class="form-text text-muted">Must follow conventional email address</small>
+            </div>
+            <div class="form-row mr-1 ml-1 mb-2">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="loginpass" name="loginpass" value="" placeholder="password" required>
+              <small class="form-text text-muted">At least one CAPITAL letter and one digit and length 8-20</small>
+            </div>
+            <div class="form-row mr-1 ml-1">
+              <button class="btn btn-info ml-auto" type="submit">Log In</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p class="mr-auto">If you haven't register yet <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#registrationModal">Click here!</a> </p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-fade" id="registrationModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registrationModalLabel">Registration</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form class="my-2 my-lg-0" id="registrationform">
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="fname">First Name</label>
+                <input class="form-control" type="text" name="regfname" value="" id="regfname" placeholder="First Name" required>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="lname">Last Name</label>
+                <input class="form-control" type="text" name="reglname" value="" id="reglname" placeholder="Last Name" required>
+                <small class="form-text text-muted">At least 3 character</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="e-mail">E-Mail</label>
+                <input class="form-control" type="text" name="regemail" value="" id="regemail" placeholder="example@email.com" required>
+                <small class="form-text text-muted">Must follow conventional email address</small>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="phone">Phone</label>
+                <input class="form-control" type="text" name="regphone" value="" id="regphone" placeholder="Phone Number" required>
+                <small class="form-text text-muted">Bangladeshi phone number</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="pass1">Password</label>
+                <input class="form-control" type="password" name="regpass1" id="regpass1" value="" placeholder="password" required>
+                <small class="form-text text-muted">At least 1 CAPITAL 1 digit and length 8-20</small>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="pass2">Confirm Password</label>
+                <input class="form-control" type="password" name="regpass2" id="regpass2" value="" placeholder="password" requi>
+                <small class="form-text text-muted">Must match with previous one</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="ml-3">Gender:</label>
+              <div class="form-group col-12 col-lg-12">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="male" checked>
+                  <label class="form-check-label" for="gender">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="female">
+                  <label class="form-check-label" for="gender">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="others">
+                  <label class="form-check-label" for="gender">Others</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row mr-1 ml-1">
+              <button type="submit" class="btn btn-info ml-auto">Register</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <nav aria-label="breadcrumb pl-3 pr-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item hvr-grow"><a href="home.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Order</li>
+      </ol>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="row pl-3 pr-3">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" class="text-center">Image</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Code</th>
+              <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Price</th>
+              <th scope="col" class="text-center">Cancel Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="text-center"><img src="helmets/AGV_corsa-r.png" alt="Product Details Image"></td>
+              <td class="text-center">AGV Corsa R</td>
+              <td class="text-center">BN012</td>
+              <td class="text-center"> <input class="input" type="number" name="" value="1" min="1"> </td>
+              <td class="text-center">18000 /=</td>
+              <td class="text-center">
+                <button type="button" class="close hvr-grow" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td class="text-center"><img src="helmets/AGV_pista-gp-rr.png" alt="Product Details Image"></td>
+              <td class="text-center">AGV Pista GP RR</td>
+              <td class="text-center">BN012</td>
+              <td class="text-center"> <input class="input" type="number" name="" value="1" min="1"> </td>
+              <td class="text-center">27000 /=</td>
+              <td class="text-center">
+                <button type="button" class="close hvr-grow" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td class="text-center"><img src="helmets/AGV-pista-gp-r.png" alt="Product Details Image"></td>
+              <td class="text-center">AGV Pista GP R</td>
+              <td class="text-center">BN012</td>
+              <td class="text-center"> <input class="input" type="number" name="" value="1" min="1"> </td>
+              <td class="text-center">25000 /=</td>
+              <td class="text-center">
+                <button type="button" class="close hvr-grow" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="h2 text-center">Total: 70000 /=</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row pl-3 pr-3">
+      <button class="btn btn-outline-info ml-auto mr-2 my-2" type="button" name="button">Add more Product</button>
+      <button class="btn btn-outline-success ml-2 my-2 mr-2" type="button" name="button">Proceed To confirm</button>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row pl-3 pr-3">
+      <h2 class="pl-3">Delivery Address</h2>
+    </div>
+    <hr>
+    <div class="row mb-2 pl-3 pr-3">
+      <div class="col-12">
+        <form id="orderform">
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" id="ordername" name="ordername" value="" placeholder="Name" disabled>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="email" id="orderemail" name="orderemail" value="" placeholder="Email" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" id="orderphone" name="orderphone" value="" placeholder="Mandatory Phone Number" disabled>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" id="alternateorderphone" name="alternateorderphone" value="" placeholder="Alternative Phone Number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" id="orderaddress" name="orderaddress" value="" placeholder="Address" required>
+              <small class="form-text text-muted">At least 10 character</small>
+            </div>
+            <div class="col-6 col-md-3 mb-2">
+              <input class="form-control rounded" type="text" id="ordercity" name="ordercity" value="" placeholder="City" required>
+              <small class="form-text text-muted">5-30 letters</small>
+            </div>
+            <div class="col-6 col-md-3 mb-2">
+              <input class="form-control rounded" type="text" id="orderthana" name="orderthana" value="" placeholder="Thana" required>
+              <small class="form-text text-muted">5-30 letters</small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <textarea name="feedback" id="feedback" class="form-control" rows="2" placeholder="Leave a note here if any"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+          <!--  <button class="btn btn-outline-info ml-auto mr-2 my-2" type="button" name="button">Deliver to another Address</button>-->
+            <button class="btn btn-outline-success ml-auto mr-2 my-2" type="submit" name="button">Proceed To Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  <div class="container mt-5 d-none">
+    <div class="row pl-3 pr-3">
+      <h2>Delivery Address</h2>
+    </div>
+    <hr>
+    <div class="row mb-2 pl-3 pr-3">
+      <div class="col-12">
+        <form>
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="Name" disabled>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="email" name="" value="" placeholder="Email" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="Mandatory Phone Number" disabled>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="Alternative Phone Number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="Address">
+            </div>
+            <div class="col-6 col-md-3 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="City">
+            </div>
+            <div class="col-6 col-md-3 mb-2">
+              <input class="form-control rounded" type="text" name="" value="" placeholder="Thana">
+            </div>
+          </div>
+          <div class="form-group row">
+            <button class="btn btn-outline-info ml-auto mr-3 my-2" type="button" name="button">Proceed to Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>  -->
+
+  <div class="container mt-5 mb-5">
+    <div class="row pl-3 pr-3">
+      <h2>Payment</h2>
+    </div>
+    <hr>
+    <div class="row mb-2 pl-3 pr-3">
+      <div class="col-12">
+        <form id="paymentForm">
+          <div class="form-group row">
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="paymentname" id="paymentname" value="" placeholder="Card Holder Name" required>
+              <small class="form-text text-muted">At least 10 character</small>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+              <input class="form-control rounded" type="text" name="paymentcardNumber" id="paymentcardNumber" value="" placeholder="Card Number" required>
+              <small class="form-text text-muted">16 digits card number</small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 col-md-4 mb-2">
+              <input class="form-control rounded" type="datetime-local" name="" value="" placeholder="Expiry Date" required>
+            </div>
+            <div class="col-6 col-md-4 mb-2">
+              <input class="form-control rounded" type="datetime-local" name="" value="" placeholder="Expiry Month" required>
+              <small class="form-text text-muted">1-12</small>
+            </div>
+            <div class="col-6 col-md-4 mb-2">
+              <input class="form-control rounded" type="password" name="paymentCvc" id="paymentCvc" value="" placeholder="CVC" required>
+              <small class="form-text text-muted">3 digit</small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <button class="btn btn-success ml-auto mr-3 my-2" type="submit" name="button">Confirm Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid bg-dark mt-2">
+    <div class="row d-flex justify-content-around lower-nav pl-3 pr-3">
+      <a class="p-3 border-right border-secondary" href="#">About</a>
+      <a class="p-3 border-right border-secondary" href="#">Career</a>
+      <a class="p-3 border-right border-secondary" href="#">Terms of use</a>
+      <a class="p-3 border-right border-secondary" href="#">Privacy Policy</a>
+      <a class="p-3 border-right border-secondary" href="#">FAQ</a>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row p-5">
+      <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+        <div class="d-block">
+          <h5>HelmetMart</h5>
+          <p>-All premium helmets at your doorstep</p>
+        </div>
+        <div class="d-block">
+          Call Us: <a class="d-inline-block" href="tel:+8801912121212">+8801912121212</a>
+          <p>Email: <a class="d-inline-block" href="mailto:helmetmart@gmail.com">helmetmart@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>Menu</h5>
+        <a class="d-block" href="#">Home</a>
+        <a class="d-block" href="#">Helmet</a>
+        <a class="d-block" href="#">Accssories</a>
+        <a class="d-block" href="#">About Us</a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>We accept:</h5>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-amex fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-visa fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-paypal fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-apple-pay fa-2x"></i></a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>Get in Touch</h5>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row bg-dark justify-content-center pl-3 pr-3">
+      <p class="text-white pt-3">© Made with <img class="hvr-pulse-grow" src="icons/heart.png" alt=""> by Hamim</p>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="bootstrap/js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="script.js" charset="utf-8"></script>
+</body>
+
+</html>

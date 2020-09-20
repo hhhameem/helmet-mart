@@ -1,0 +1,1350 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light shadow rounded sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerID" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand ml-5" href="#">HelmetMart</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerID">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link active" href="#">Home</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Helmets</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#helmetbrands">Brands</a>
+            <a class="dropdown-item" href="#helmetcatagory">Catagory</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link" href="#accessories">Accessories</a>
+      </div>
+      <div class="navbar-nav mr-5">
+        <form class="form-inline my-2 my-lg-0" id="navform">
+          <div class="input-group mb-1">
+            <input type="text" class="form-control" id="search" name="search" placeholder="input at least 3 character" aria-label="Search" required>
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+        <a class="nav-item nav-link mt-1" href="order.html"><i class="fas fa-shopping-cart fa-2x"></i><span class="cart-counter">3</span></a>
+        <a class="nav-item nav-link mt-1" href="#" data-toggle="modal" data-target="#logInModal"><i class="far fa-user-circle fa-2x"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal for login -->
+  <div class="modal modal-fade" id="logInModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logInModalLabel">Log In Credentials</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form class="my-2 my-lg-0" id="loginform">
+            <div class="form-row mr-1 ml-1 mb-2">
+              <label for="email">E-Mail</label>
+              <input type="text" class="form-control" id="loginemail" name="loginemail" value="" placeholder="example@gmail.com" required>
+              <small class="form-text text-muted">Must follow conventional email address</small>
+            </div>
+            <div class="form-row mr-1 ml-1 mb-2">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="loginpass" name="loginpass" value="" placeholder="password" required>
+              <small class="form-text text-muted">At least one CAPITAL letter and one digit and length 8-20</small>
+            </div>
+            <div class="form-row mr-1 ml-1">
+              <button class="btn btn-info ml-auto" type="submit">Log In</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p class="mr-auto">If you haven't register yet <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#registrationModal">Click here!</a> </p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Registration -->
+  <div class="modal modal-fade" id="registrationModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registrationModalLabel">Registration</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form class="my-2 my-lg-0" id="registrationform">
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="fname">First Name</label>
+                <input class="form-control" type="text" name="regfname" value="" id="regfname" placeholder="First Name" required>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="lname">Last Name</label>
+                <input class="form-control" type="text" name="reglname" value="" id="reglname" placeholder="Last Name" required>
+                <small class="form-text text-muted">At least 3 character</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="e-mail">E-Mail</label>
+                <input class="form-control" type="text" name="regemail" value="" id="regemail" placeholder="example@email.com" required>
+                <small class="form-text text-muted">Must follow conventional email address</small>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="phone">Phone</label>
+                <input class="form-control" type="text" name="regphone" value="" id="regphone" placeholder="Phone Number" required>
+                <small class="form-text text-muted">Bangladeshi phone number</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6 mb-3">
+                <label for="pass1">Password</label>
+                <input class="form-control" type="password" name="regpass1" id="regpass1" value="" placeholder="password" required>
+                <small class="form-text text-muted">At least 1 CAPITAL 1 digit and length 8-20</small>
+              </div>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="pass2">Confirm Password</label>
+                <input class="form-control" type="password" name="regpass2" id="regpass2" value="" placeholder="password" requi>
+                <small class="form-text text-muted">Must match with previous one</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="ml-3">Gender:</label>
+              <div class="form-group col-12 col-lg-12">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="male" checked>
+                  <label class="form-check-label" for="gender">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="female">
+                  <label class="form-check-label" for="gender">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="gender" value="others">
+                  <label class="form-check-label" for="gender">Others</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row mr-1 ml-1">
+              <button type="submit" class="btn btn-info ml-auto">Register</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for product details -->
+  <div class="modal fade" id="productDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productDetailsTitle">Caberg Helmet</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row mb-3">
+            <div class="col-12 col-sm-6 mb-3">
+              <img class="border-right border-bottom" src="helmets/Caberg_jackall.png" alt="Product Details Image">
+            </div>
+            <div class=" col-12 col-sm-6 mb-3 pl-5">
+              <h2>Caberg Jackall</h2>
+              <p>Product Code:BN012</p>
+              <p>Size: M, L, Xl</p>
+              <p>Price: 12000bdt</p>
+            </div>
+          </div>
+          <div class="row ml-3">
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+            <p>-shdgshg sgjs dg sdhgs gfds sdgh d</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add to Cart <i class="fas fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- carousel/slider -->
+  <div id="carouselItems" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselItems" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselItems" data-slide-to="1"></li>
+      <li data-target="#carouselItems" data-slide-to="2"></li>
+      <li data-target="#carouselItems" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="images/1.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/2.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/3.jpg" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/4.jpg" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselItems" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselItems" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- hot deal part -->
+  <div class="container">
+    <div class="row mt-5 mb-3 pl-3">
+      <h1>Hot Deal<img class="fire hvr-pulse-grow" src="icons/fire.png" alt="fire"></h1>
+    </div>
+    <hr>
+    <div class="row mb-3 scrolling-wrapper pl-3 pr-3">
+      <div class="card-deck d-flex flex-row flex-nowrap">
+        <div class="card">
+          <img class="card-img-top" src="helmets/Caberg_jackall.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">Caberg Jackall</h3>
+            <p class="card-text">Size: M,L,Xl</p>
+            <p class="card-text">Product Code: BN102</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 12000/= </span><s>15000</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/AGV_corsa-r.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">AGV Corsa R</h3>
+            <p class="card-text">Size: M,L,XL</p>
+            <p class="card-text">Product Code: ACR102</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 15000/= </span><s>16500</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/AGV-pista-gp-r.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">AGV Pista Gp R</h3>
+            <p class="card-text">Size: L,Xl</p>
+            <p class="card-text">Product Code: AGP110</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 22000/= </span><s>25000</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/SHOEI_rf-1200.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">SHOEI Rf-1200</h3>
+            <p class="card-text">Size: M,Xl</p>
+            <p class="card-text">Product Code: SR-111</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 15500/= </span><s>17450</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/CABERG_duke-flip-up.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">CABERG Duke Flip-up</h3>
+            <p class="card-text">Size: M,L,Xl</p>
+            <p class="card-text">Product Code: CD502</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 18000/= </span><s>20200</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/Bilmola_replicon.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">Bilmola Replicon</h3>
+            <p class="card-text">Size: M,L,Xl</p>
+            <p class="card-text">Product Code: BR102</p>
+            <h6 class="card-text font-weight-bold">Price: 1000bdt</h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 8000/= </span><s>9450</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="helmets/HJC_rpha-70.png" alt="Card image cap">
+          <div class="card-body hvr-bounce-to-top">
+            <h3 class="card-title">HJC Rpha-70</h3>
+            <p class="card-text">Size: L</p>
+            <p class="card-text">Product Code: HR152</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <h6 class="card-text">Price:<span class="font-weight-bold"> 22000/= </span><s>26000</s></h6>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+            <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- jumbotron -->
+  <div class="jumbotron-fluid">
+    <h1 class="text-center">Premium Helmet Collection</h1>
+    <p class="text-center">One marketplace to get premium helmets from all over the world</p>
+  </div>
+
+  <!-- helmet brands -->
+  <div class="container" id="helmetbrands">
+    <div class="row mt-5 mb-3 pl-3">
+      <h1>Brands</h1>
+    </div>
+    <hr>
+    <nav class="pl-3 pr-3">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active hvr-float-shadow" id="nav-agv-tab" data-toggle="tab" href="#nav-agv" role="tab" aria-controls="nav-home" aria-selected="true">AGV</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-bilmola-tab" data-toggle="tab" href="#nav-bilmola" role="tab" aria-controls="nav-profile" aria-selected="false">BILMOLA</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-caberg-tab" data-toggle="tab" href="#nav-caberg" role="tab" aria-controls="nav-profile" aria-selected="false">CABERG</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-hjc-tab" data-toggle="tab" href="#nav-hjc" role="tab" aria-controls="nav-profile" aria-selected="false">HJC</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-shoei-tab" data-toggle="tab" href="#nav-shoei" role="tab" aria-controls="nav-contact" aria-selected="false">SHOEI</a>
+      </div>
+    </nav>
+    <div class="tab-content pl-3 pr-3" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-agv" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_corsa-r.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Corsa R</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 18000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_pista-gp-rr.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Pista GP RR</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 27000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_st-e2205.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV ST-e2205</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_x70.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV x70</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 9500/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV-pista-gp-r.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Pista GP R</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 25000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-bilmola" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_Rapid-s.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Rapid-S</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 13450/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_replicon.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Replicon</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_nex.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Nex</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 9550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/BILMOLA-EXPLORER-FLIP-UP.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">BILMOLA EXPLORER FLIP-UP</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 10050/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/BILMOLA-ZILLA.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">BILMOLA ZILLA</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 13900/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-caberg" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/CABERG_duke-flip-up.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">CABER Duke Flip-up</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 14450/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg_jackall.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Jackall</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 23350/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg-drift-evo.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Drift Evo</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 14550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg-xtrace.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Xtrace</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12700/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/CABERG_ghost-jet.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">CABER Ghost Jet</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 11000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-hjc" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-70-carbon.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-70 Carbon</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 24000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-70.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-70</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 18000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-11.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-11</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 16000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_fx-off-road.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC FX Off-road</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 13000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_fg-17.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC FG-17</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 21000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-shoei" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_gt-air2.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI GT Air-2</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 62000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_rf-1200.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI RF-1200</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 39200/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_rf-1100.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI RF-1100</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 34700/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_vfx-evo.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI Vfx Evo</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 25000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_j-cruise-2.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI J-cruise-2</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 23000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- helmet catagories -->
+  <div class="container" id="helmetcatagory">
+    <div class="row mt-5 mb-3 pl-3">
+      <h1>Catagories</h1>
+    </div>
+    <hr>
+    <nav class="pl-3 pr-3">
+      <div class="nav nav-pills" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active hvr-float-shadow" id="nav-fullface-pills" data-toggle="pill" href="#nav-fullface" role="tab" aria-controls="nav-fullface" aria-selected="true">Full Face</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-halfface-pills" data-toggle="pill" href="#nav-halfface" role="tab" aria-controls="nav-halfface" aria-selected="false">Half Face</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-modular-pills" data-toggle="pill" href="#nav-modular" role="tab" aria-controls="nav-modular" aria-selected="false">Flip Up</a>
+      </div>
+    </nav>
+    <div class="tab-content  pl-3 pr-3" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-fullface" role="tabpanel" aria-labelledby="nav-fullface-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_corsa-r.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Corsa R</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 18000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_pista-gp-rr.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Pista GP RR</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 27000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV-pista-gp-r.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV Pista GP R</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 25000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_Rapid-s.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Rapid-S</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 13450/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_gt-air2.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI GT Air-2</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 62000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_rf-1200.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI RF-1200</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 39200/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_rf-1100.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI RF-1100</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 34700/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_replicon.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Replicon</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_nex.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Nex</h3>
+                <p class="card-text">Size: M,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 9550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg_jackall.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Jackall</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 23350/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg-drift-evo.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Drift Evo</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 14550/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/Caberg-xtrace.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Caberg Xtrace</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12700/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-70-carbon.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-70 Carbon</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 24000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-70.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-70</h3>
+                <p class="card-text">Size: L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 18000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_rpha-11.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC Rpha-11</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 16000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/HJC_fx-off-road.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC FX Off-road</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 13000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-halfface" role="tabpanel" aria-labelledby="nav-halfface-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_x70.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV x70</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 9500/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/SHOEI_j-cruise-2.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI J-cruise-2</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 23000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-modular" role="tabpanel" aria-labelledby="nav-modular-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/AGV_st-e2205.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">AGV ST-e2205</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 12000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/BILMOLA-EXPLORER-FLIP-UP.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">BILMOLA EXPLORER FLIP-UP</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 10050/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- helmet accessories -->
+  <div class="container" id="accessories">
+    <div class="row mt-5 mb-3 pl-3">
+      <h1>Accessories</h1>
+    </div>
+    <hr>
+    <nav class="pl-3 pr-3">
+      <div class="nav nav-pills" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active hvr-float-shadow" id="nav-visor-pills" data-toggle="pill" href="#nav-visor" role="tab" aria-controls="nav-visor" aria-selected="true">Visor</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-helmetcleaner-pills" data-toggle="pill" href="#nav-helmetcleaner" role="tab" aria-controls="nav-helmetcleaner" aria-selected="false"> Helmet Cleaner</a>
+        <a class="nav-item nav-link hvr-float-shadow" id="nav-communicator-pills" data-toggle="pill" href="#nav-communicator" role="tab" aria-controls="nav-communicator" aria-selected="false">Communicator</a>
+      </div>
+    </nav>
+    <div class="tab-content pl-3 pr-3" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-visor" role="tabpanel" aria-labelledby="nav-visor-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/Bilmola_anti_fog.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Bilmola Anti Fog Visor</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 1000/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/hjcj20_pinlock.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC J20 Pinlock</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 1200/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/hjc_j17_blue.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">HJC J17 Blue Visor</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 1900/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/visor-gt3.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI Irridium Visor</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 2200/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="helmets/visor-pista-gp.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">SHOEI Clear Visor</h3>
+                <p class="card-text">Size: M,L,Xl</p>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 1800/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-helmetcleaner" role="tabpanel" aria-labelledby="nav-helmetcleaner-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/liqui_moly_visor_cleaner.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Liqui Moly Visor Cleaner</h3>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 3250/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-communicator" role="tabpanel" aria-labelledby="nav-communicator-tab">
+        <div class="row mb-3 scrolling-wrapper">
+          <div class="card-deck d-flex flex-row flex-nowrap">
+            <div class="card">
+              <img class="card-img-top" src="helmets/sena_s5.png" alt="Card image cap">
+              <div class="card-body hvr-bounce-to-top">
+                <h3 class="card-title">Sena S5 Bluetooth Communicator</h3>
+                <p class="card-text">Product Code: BN102</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <h6 class="card-text">Price:<span class="font-weight-bold"> 6700/=</span></h6>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-primary hvr-float-shadow" type="button" name="button" data-toggle="modal" data-target="#productDetails">Details</button>
+                <button type="button" class="btn btn-primary hvr-float-shadow"><i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- testimonials -->
+  <div class="container bg-info mb-5">
+    <div class="row mt-5 pl-3 pr-3">
+      <div class="col-1">
+        <a class="carousel-control-prev ml-5" href="#testimonial" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="col-10">
+        <blockquote class="blockquote text-right">
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+        <blockquote class="blockquote text-right d-none">
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+        <blockquote class="blockquote text-right d-none">
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+      </div>
+      <div class="col-1">
+        <a class="carousel-control-next mr-5" href="#carouselItems" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- lower nav -->
+  <div class="container-fluid bg-dark mt-2">
+    <div class="row d-flex justify-content-around lower-nav  pl-3 pr-3">
+      <a class="p-3 border-right border-secondary" href="#">About</a>
+      <a class="p-3 border-right border-secondary" href="#">Career</a>
+      <a class="p-3 border-right border-secondary" href="#">Terms of use</a>
+      <a class="p-3 border-right border-secondary" href="#">Privacy Policy</a>
+      <a class="p-3 border-right border-secondary" href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="container-fluid">
+    <div class="row p-5">
+      <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+        <div class="d-block">
+          <h5>HelmetMart</h5>
+          <p>-All premium helmets at your doorstep</p>
+        </div>
+        <div class="d-block">
+          Call Us: <a class="d-inline-block" href="tel:+8801912121212">+8801912121212</a>
+          <p>Email: <a class="d-inline-block" href="mailto:helmetmart@gmail.com">helmetmart@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>Menu</h5>
+        <a class="d-block" href="#">Home</a>
+        <a class="d-block" href="#">Helmet</a>
+        <a class="d-block" href="#">Accssories</a>
+        <a class="d-block" href="#">About Us</a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>We accept:</h5>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-amex fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-visa fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-paypal fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-cc-apple-pay fa-2x"></i></a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 align-self-center mb-3">
+        <h5>Get in Touch</h5>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="#" class="hvr-float-shadow"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row bg-dark justify-content-center pl-3 pr-3">
+      <p class="text-white pt-3">© Made with <img class="hvr-pulse-grow" src="icons/heart.png" alt=""> by Hamim</p>
+    </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="bootstrap/js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="script.js" charset="utf-8"></script>
+</body>
+
+</html>
